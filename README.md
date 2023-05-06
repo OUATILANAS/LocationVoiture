@@ -18,6 +18,7 @@ This is a car rental web application built with Django, allowing users to rent c
 - Check car details
 - Book a car for a specific date and time
 - Admin panel to manage cars and bookings and add users
+- User can scrap data from another website and display it
 
 ## Getting Started
 
