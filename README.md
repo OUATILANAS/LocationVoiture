@@ -78,7 +78,7 @@ The application has the following URLs:
 - /about: displays information about the application.
 - /blog-single: displays a single blog post.
 - /blog: displays a list of blog posts.
-- /car-single/int:id: displays detailed information about a specific car.
+- /car-single/id: displays detailed information about a specific car.
 - /car: displays a list of available cars.
 - /contact: displays a contact form.
 - /services: displays a list of services offered.
