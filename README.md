@@ -21,11 +21,11 @@ This is a car rental web application built with Django, allowing users to rent c
 
 ## Getting Started
 
-1.Clone the repository to your local machine:
+1. Clone the repository to your local machine:
 
 git clone https://github.com/OUATILANAS/LocationVoiture.git
 
-2.Change to the project directory:
+2. Change to the project directory:
 
 cd LocationVoiture
 
