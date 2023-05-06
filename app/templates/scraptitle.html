@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Django FBV With Beautifulsoup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <style>
+    p {
+      font-size: 20px
+    }
+
+    h1 {
+      text-align: center;
+    }
+  </style>
+
+  <body>
+
+    <div class="container">
+      <h1 class="mt-5 mb-5">Get Title From Any Website</h1>
+      
+      <!-- Form -->
+      <form method="POST" action="{% url 'scraptitle' %}"> {% csrf_token %} <div class="mt-4">
+          
+        <div class="col">
+            <input type="url" name="url" class="form-control" placeholder="Enter URL" rows="5" required="required">
+            </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Go</button>
+
+      </form>
+
+      <!-- Result -->
+      <div class="result mt-4">
+        <h2>{{title}}</h2>
+      </div>
+
+    </div>
+  </body>
+</html>

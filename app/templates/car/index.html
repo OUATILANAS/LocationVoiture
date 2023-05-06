@@ -1,0 +1,83 @@
+{% extends "./base.html" %}
+  
+{% block title %}Add New Employee Records{% endblock title %}
+  
+{% block content %}
+
+<div class="col-md-12"> 
+    <h4>Add Car</h4>  
+    <span><a href="/user" class="btn btn-primary">Back</a>
+    </span>    
+    <form method="POST" class="post-form" action="/addnew" enctype="multipart/form-data">  
+    {% csrf_token %}  
+    <div class="container">  
+        <div class="col-12">  
+        <h3>Enter Details</h3>  
+        </div>    
+     
+        <div class="mb-3"> 
+            <label>Nom:</label>  
+            {{ form.Nom }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Mileage:</label>  
+            {{ form.Mileage }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Transmission:</label>  
+            {{ form.Transmission }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Fuel:</label>  
+            {{ form.Fuel }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Luggage:</label>  
+            {{ form.Luggage }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Matricule:</label>  
+            {{ form.Matricule }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Marque:</label>  
+            {{ form.Marque }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Modele:</label>  
+            {{ form.Modele }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Annee:</label>  
+            {{ form.Annee }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>NbPlaces:</label>  
+            {{ form.NbPlaces }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Couleur:</label>  
+            {{ form.Couleur }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>PrixParJour:</label>  
+            {{ form.PrixParJour }}   
+        </div>  <div class="mb-3"> 
+            <label>IsAvailable:</label>  
+            {{ form.IsAvailable }}   
+        </div>  <div class="mb-3"> 
+            <label>Image:</label>  
+            {{ form.Image }}   
+        </div>
+          
+        <div class="mb-3"> 
+            <label>Agence:</label>  
+            {{ form.Agence }}   
+        </div> 
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-primary">Submit</button>    
+        </div> 
+    </div>  
+    </form>  
+</div> 
+{% endblock content %} 
