@@ -1,0 +1,68 @@
+{% extends "./base.html" %}
+  
+{% block title %}Cars Records{% endblock title %}
+  
+{% block content %}
+ <div class="col-md-12">
+        <br>
+        <span><a href="/addnew" class="btn btn-primary">Add New Car</a>
+            <a href="/adduser" class="btn btn-primary">Add New Employee</a>
+            <a href="/logout" class="btn btn-primary">Logout</a></span>  
+        <br>
+        <br>
+        <div class="table-responsive">
+        <table id="bootstrapdatatable" class="table table-striped table-bordered" width="100%">
+        <thead>
+            <!--<th><input type="checkbox" id="checkall" /></th>-->
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Mileage</th>
+            <th>Transmission</th>
+            <th>Fuel</th>
+            <th>Luggage</th>
+            <th>Matricule</th>
+            <th>Marque</th>
+            <th>Modele</th>
+            <th>Annee</th>
+            <th>NbPlaces</th>
+            <th>Couleur</th>
+            <th>PrixParJour</th>
+            <th>IsAvailable</th>
+            <th>Image</th>
+            <th>Agence</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+        {% for car in Voiture %}  
+            <tr>  
+            <!--<td><input type="checkbox" class="checkthis" /></td>-->
+            <td>{{ car.id }}</td>  
+            <td>{{ car.Nom }}</td>  
+            <td>{{ car.Mileage }}</td>  
+            <td>{{ car.Transmission }}</td>  
+            <td>{{ car.Fuel }}</td>  
+            <td>{{ car.Luggage }}</td>  
+            <td>{{ car.Matricule }}</td>  
+            <td>{{ car.Marque }}</td>  
+            <td>{{ car.Modele }}</td>  
+            <td>{{ car.Annee }}</td>  
+            <td>{{ car.NbPlaces }}</td>  
+            <td>{{ car.Couleur }}</td>  
+            <td>{{ car.PrixParJour }}</td>  
+            <td>{{ car.IsAvailable }}</td>  
+            <td>
+            {% if car.Image %}
+            <img src="{{ car.Image.url }}" width="100">
+            {% endif %}
+            </td>  
+            <td>{{ car.Agence.Nom }}</td>  
+            <td><a href="/update/{{ car.id }}" class="btn btn-primary">Edit</a></td>
+            <td><a href="/delete/{{ car.id }}" class="btn btn-danger">Delete</a></td>  
+            </tr>  
+        {% endfor %} 
+        </tbody>
+        </table>
+        </div>
+    </div>
+{% endblock content %}

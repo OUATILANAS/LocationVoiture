@@ -1,0 +1,94 @@
+{% extends "./base.html" %}
+  
+{% block title %}Add New Employee Records{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{voiture.id}}"  enctype="multipart/form-data">  
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <h3>Update Details</h3>  
+        </div> 
+        <span><a href="/user" class="btn btn-primary">Back</a>
+        </span>  
+        <div class="mb-3"> 
+            <label>ID:</label>  
+            <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ voiture.id }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Nom:</label>  
+            <input type="text" class="form-control" name="Nom" id="id_Nom" required maxlength="100" value="{{ voiture.Nom }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Mileage:</label>  
+            <input type="text" class="form-control" name="Mileage" id="id_Mileage" required maxlength="20" value="{{ voiture.Mileage }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Transmission:</label>  
+            <input type="text" class="form-control" name="Transmission" id="id_Transmission" required maxlength="100" value="{{ voiture.Transmission }}" />  
+        </div>         <div class="mb-3"> 
+            <label>Fuel:</label>  
+            <input type="text" class="form-control" name="Fuel" id="id_Fuel" required maxlength="20" value="{{ voiture.Fuel }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Luggage:</label>  
+            <input type="text" class="form-control" name="Luggage" id="id_Luggage" required maxlength="100" value="{{ voiture.Luggage }}" />  
+        </div>         <div class="mb-3"> 
+            <label>Matricule:</label>  
+            <input type="text" class="form-control" name="Matricule" id="id_Matricule" required maxlength="20" value="{{ voiture.Matricule }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Marque:</label>  
+            <input type="text" class="form-control" name="Marque" id="id_Marque" required maxlength="100" value="{{ voiture.Marque }}" />  
+        </div>         <div class="mb-3"> 
+            <label>Modele:</label>  
+            <input type="text" class="form-control" name="Modele" id="id_Modele" required maxlength="20" value="{{ voiture.Modele }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Annee:</label>  
+            <input type="number" class="form-control" name="Annee" id="id_Annee" required maxlength="5" value="{{ voiture.Annee }}" />  
+        </div>         <div class="mb-3"> 
+            <label>NbPlaces:</label>  
+            <input type="number" class="form-control" name="NbPlaces" id="id_NbPlaces" required maxlength="3" value="{{ voiture.NbPlaces }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Couleur:</label>  
+            <input type="text" class="form-control" name="Couleur" id="id_Couleur" required maxlength="100" value="{{ voiture.Couleur }}" />  
+        </div>         <div class="mb-3"> 
+            <label>PrixParJour:</label>  
+            <input type="number" class="form-control" name="PrixParJour" id="id_PrixParJour" required maxlength="20" value="{{ voiture.PrixParJour }}"/>    
+        </div> 
+        <div class="mb-3">
+            <label for="id_IsAvailable">IsAvailable:</label>
+            <select class="form-control" name="IsAvailable" id="id_IsAvailable" required>
+              <option value="true" {% if not voiture.IsAvailable %}selected{% endif %}>True</option>
+              <option value="false" {% if voiture.IsAvailable %}selected{% endif %}>False</option>
+            </select>
+          </div>
+                         
+          <div class="mb-3"> 
+            <label>Image:</label>  
+            <input type="file" class="form-control-file" name="Image" id="id_Image" accept="image/*"/>    
+            {% if voiture.Image %}
+                <img src="{{ voiture.Image.url }}" alt="Voiture Image" style="max-width: 200px;"/>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="id_Agence">Agence:</label>
+            <select class="form-control" name="Agence" id="id_Agence" required >
+              {% for agence in agences %}
+                <option value="{{ agence.id }}" {% if agence.id == selected_agence %}selected{% endif %}>{{ agence.Nom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          
+          
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock content %}  
