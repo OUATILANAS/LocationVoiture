@@ -84,9 +84,9 @@ The application has the following URLs:
 - /services: displays a list of services offered.
 - /home: displays the home page.
 - /addnew: allows a superuser to add a new car to the inventory.
-- /edit/int:id: allows a superuser to edit the details of an existing car.
-- /update/int:id: updates the details of an existing car.
-- /delete/int:id: deletes an existing car.
+- /edit/id: allows a superuser to edit the details of an existing car.
+- /update/id: updates the details of an existing car.
+- /delete/id: deletes an existing car.
 - /login: displays the login form.
 - /signup: displays the signup form.
 - /logout: logs the user out of their account.
