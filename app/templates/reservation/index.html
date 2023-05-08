@@ -1,0 +1,49 @@
+{% extends "./base.html" %}
+  
+{% block title %}Add New Employee Records{% endblock title %}
+  
+{% block content %}
+
+<div class="col-md-12"> 
+    <h4>Add Reservation</h4>  
+    <span><a href="/reservationshow" class="btn btn-primary">Back</a>
+    </span>    
+    <form method="POST" class="post-form" action="/reservationaddnew" enctype="multipart/form-data">  
+    {% csrf_token %}  
+    <div class="container">  
+        <div class="col-12">  
+        <h3>Enter Details</h3>  
+        </div>    
+     
+        <div class="mb-3"> 
+            <label>Pickup Location:</label>  
+            {{ form.pickup_location }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Dropoff Location:</label>  
+            {{ form.dropoff_location }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Pickup Date:</label>  
+            {{ form.pickup_date }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Dropoff Date:</label>  
+            {{ form.dropoff_date }}   
+        </div> 
+        <div class="mb-3"> 
+            <label>Pickup Time:</label>  
+            {{ form.pickup_time }}   
+        </div> 
+        <div class="mb-3">
+            <label>Car:</label>
+            {{ form.car }}
+        </div>
+        
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-primary">Submit</button>    
+        </div> 
+    </div>  
+    </form>  
+</div> 
+{% endblock content %} 

@@ -1,5 +1,6 @@
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Personne(models.Model):
@@ -12,6 +13,19 @@ class Personne(models.Model):
         abstract = True
 
 
+class EmployeeUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    Nom = models.CharField(max_length=50)
+    Prenom = models.CharField(max_length=50)
+    Email = models.EmailField()
+    Telephone = models.CharField(max_length=15)
+    CIN = models.CharField(max_length=8)
+    Address = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.Nom + ' ' + self.Prenom
+    class Meta:
+        db_table="EmployeeUser"
 
 class Employe(Personne):
     Num_couverture = models.CharField(max_length=100)
@@ -48,6 +62,8 @@ class Voiture(models.Model):
 
     class Meta:
         db_table="Voiture"
+    def __str__(self):
+        return self.Nom
 
 class Reservation(models.Model):
     car = models.ForeignKey(Voiture, on_delete=models.CASCADE)
@@ -74,10 +90,14 @@ class Reservation2(models.Model):
     class Meta:
         db_table="Reservation2"
 
-class Client(Personne):
-    Email = models.CharField(max_length=100)
-    Num_assurance = models.CharField(max_length=100)
-    Reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
+class Client(models.Model):
+    nom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50)
+    email = models.EmailField()
+    telephone = models.CharField(max_length=15)
+    reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.nom} {self.prenom}"
     class Meta:
         db_table="Client"
-

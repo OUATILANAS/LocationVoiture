@@ -24,6 +24,7 @@ class VoitureForm(forms.ModelForm):
         'IsAvailable': forms.Select(choices=AVAILABLE,attrs={ 'class': 'form-control' }),  
             'Agence': forms.Select(attrs={ 'class': 'form-control' }),
                 }
+                
 class ReservationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -32,3 +33,34 @@ class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = ['car', 'pickup_location', 'dropoff_location', 'pickup_date', 'dropoff_date', 'pickup_time']
+
+class ReservationForm2(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['car'].queryset = Voiture.objects.filter(IsAvailable=True)
+
+    class Meta:
+        model = Reservation
+        fields = ['car', 'pickup_location', 'dropoff_location', 'pickup_date', 'dropoff_date', 'pickup_time']
+        widgets = {
+            'pickup_location': forms.TextInput(attrs={ 'class': 'form-control' }),
+            'dropoff_location': forms.TextInput(attrs={ 'class': 'form-control' }), 
+            'pickup_date': forms.DateInput(
+                format=('%Y-%m-%d'),
+                attrs={
+                    'class': 'form-control', 
+                    'placeholder': 'Select a date',
+                    'type': 'date'
+                }
+            ),
+            'dropoff_date': forms.DateInput(
+                format=('%Y-%m-%d'),
+                attrs={
+                    'class': 'form-control', 
+                    'placeholder': 'Select a date',
+                    'type': 'date'
+                }
+            ),
+            'pickup_time': forms.TextInput(attrs={ 'class': 'form-control' }),  
+            'car': forms.Select(attrs={ 'class': 'form-control' }),
+        }

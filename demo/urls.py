@@ -23,7 +23,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
+    path("reservationshow",views.showreservation,name="showreservation"),
+    path("reservationaddnew",views.addnewreservation,name="adduser"),
+    path("editres/<int:id>",views.editreservation,name="edit"),
+    path("updateres/<int:id>",views.updatereservation,name="update"),
+    path("deleteres/<int:id>",views.deletereservation,name="delete"),
     path("user",views.index2,name="index2"),
+    path("clients",views.Clients,name="clients"),
     path("adduser",views.SignupPage,name="adduser"),
     path("about",views.About,name="about"),
     path("blog-single",views.BlogSingle,name="blog-single"),
