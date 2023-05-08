@@ -51,7 +51,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 600px;
+    height: 700px;
     width: 450px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -80,7 +80,7 @@ form h3{
 
 label{
     display: block;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 16px;
     font-weight: 500;
 }
@@ -131,6 +131,24 @@ button{
 .social i{
   margin-right: 4px;
 }
+.form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    flex-basis: 30%;
+    margin-right: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    flex-basis: 70%;
+}
 
     </style>
 </head>
@@ -142,23 +160,47 @@ button{
     <form action="" method="post">
         {% csrf_token %} 
         <h3>Signup Here</h3>
-
-        <label for="username">Username</label>
-        <input type="text" placeholder="Username" name="username" id="username">
-
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email or Phone" name="email" id="email">
-
-        <label for="password1">Password</label>
-        <input type="password" placeholder="Password" id="password1" name="password1">
-
-
-        <label for="password2">Confrom Password</label>
-        <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+    
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" name="username" id="username">
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email or Phone" name="email" id="email">
+        </div>
+    
+        <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="password" placeholder="Password" id="password1" name="password1">
+        </div>
+    
+        <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" placeholder="Confirm Password" id="password2" name="password2">
+        </div>
+        <div class="form-group">
+            <label for="Nom">Nom</label>
+            <input type="text" placeholder="Nom" name="Nom" id="Nom">
+            <label for="Prenom"> Prenom</label>
+            <input type="text" placeholder="Prenom" name="Prenom" id="Prenom">
+        </div>
+        <div class="form-group">
+            <label for="CIN">CIN</label>
+            <input type="text" placeholder="CIN" name="CIN" id="CIN">
+            <label for="Telephone"> Telephone</label>
+            <input type="text" placeholder="Telephone" name="Telephone" id="Telephone">
+        </div>
+        <div class="form-group">
+            <label for="Address"> Address</label>
+            <input type="text" placeholder="Address" name="Address" id="Address">
+        </div>
         <button type="submit">Signup</button>
-        
-        <a href="{% url 'login' %}" >i have already account</a>
-        <a href="/user" >Add User</a>
+            
+        <a href="{% url 'login' %}" >I already have an account</a>
+        <a href="/user" >Dashboard</a>
     </form>
+    
 </body>
 </html>

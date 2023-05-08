@@ -1,0 +1,55 @@
+{% extends "./base.html" %}
+  
+{% block title %}Add New Employee Records{% endblock title %}
+  
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/updateres/{{reservation.id}}"  enctype="multipart/form-data">  
+    {% csrf_token %}  
+    <div class="container">   
+        <div class="col-12">  
+            <h3>Update Details</h3>  
+        </div> 
+        <span><a href="/reservationshow" class="btn btn-primary">Back</a>
+        </span>  
+        <div class="mb-3"> 
+            <label>ID:</label>  
+            <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ reservation.id }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Pickup Location:</label>  
+            <input type="text" class="form-control" name="pickup_location" id="pickup_location" required maxlength="100" value="{{ reservation.pickup_location }}" />  
+        </div> 
+        <div class="mb-3"> 
+            <label>Dropoff Location:</label>  
+            <input type="text" class="form-control" name="dropoff_location" id="dropoff_location" required maxlength="20" value="{{ reservation.dropoff_location }}"/>    
+        </div> 
+        <div class="mb-3"> 
+            <label>Pickup Date:</label>  
+            <input type="date" class="form-control" name="pickup_date" id="pickup_date" required maxlength="100" value="{{ reservation.pickup_date }}" />  
+        </div>      
+        <div class="mb-3"> 
+            <label>Dropoff Date:</label>  
+            <input type="date" class="form-control" name="dropoff_date" id="dropoff_date" required maxlength="100" value="{{ reservation.dropoff_date }}" />  
+        </div>         <div class="mb-3"> 
+            <label>Pickup Time:</label>  
+            <input type="text" class="form-control" name="pickup_time" id="pickup_time" required maxlength="20" value="{{ reservation.pickup_time }}"/>    
+        </div> 
+        <div class="mb-3">
+            <label for="car">Car:</label>
+            <select class="form-control" name="voiture" id="id_voiture" required>
+              {% for car in voiture %}
+                <option value="{{ car.id }}" {% if car.id == selected_car.id %}selected{% endif %}>{{ car.Nom }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          
+          
+          
+        <div class="mb-3"> 
+            <button type="submit" class="btn btn-success btn-lg">Update</button>  
+        </div> 
+    </div>  
+    </form>  
+{% endblock content %}  

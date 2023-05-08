@@ -30,7 +30,8 @@ class Paiement(models.Model):
     montantPaye = models.FloatField()
     class Meta:
         db_table="Paiement"
-   
+    def __str__(self):
+        return self.totalPaye
 
 class Facture(models.Model):
     paiement = models.ForeignKey(Paiement, on_delete=models.CASCADE, null=True)
@@ -40,6 +41,8 @@ class Facture(models.Model):
     montant = models.FloatField()
     class Meta:
         db_table="Facture"
+    def __str__(self):
+        return self.nom
    
 
 class Medcine(models.Model):
